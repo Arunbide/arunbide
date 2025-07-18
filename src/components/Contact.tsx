@@ -1,128 +1,155 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
-import { Mail, Phone, MapPin, ExternalLink, Send } from "lucide-react";
+import { Mail, Phone, MapPin, ExternalLink, Calendar } from "lucide-react";
 
 const Contact = () => {
+  const handleScheduleCall = () => {
+    window.open('https://cal.com/bidearun/', '_blank');
+  };
+
   return (
-    <section id="contact" className="py-20 px-4 bg-muted/30">
+    <section id="contact" className="py-32 px-4 bg-muted/30">
       <div className="container mx-auto">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold mb-4">Get In Touch</h2>
-          <p className="text-xl text-muted-foreground">
-            Let's discuss your next Android project
+        <div className="text-center mb-20">
+          <h2 className="text-5xl font-bold mb-6 framer-text-gradient">Get In Touch</h2>
+          <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+            Let's discuss your next Android project and bring your ideas to life
           </p>
         </div>
         
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 max-w-6xl mx-auto">
           {/* Contact Info */}
           <div className="space-y-8">
-            <Card className="card-glow hover-lift transition-smooth">
+            <Card className="framer-card transition-spring">
               <CardHeader>
-                <CardTitle className="text-xl flex items-center gap-3">
-                  <Mail className="h-6 w-6 text-primary" />
+                <CardTitle className="text-2xl flex items-center gap-4">
+                  <div className="p-3 rounded-2xl bg-primary/10">
+                    <Mail className="h-6 w-6 text-primary" />
+                  </div>
                   Email
                 </CardTitle>
               </CardHeader>
               <CardContent>
-                <p className="text-muted-foreground mb-4">
-                  Feel free to reach out via email for project discussions or collaborations.
+                <p className="text-muted-foreground mb-6 leading-relaxed">
+                  Ready to discuss your project? Drop me an email and I'll get back to you within 24 hours.
                 </p>
-                <Button variant="outline" className="w-full">
+                <Button 
+                  variant="outline" 
+                  className="w-full h-12 rounded-2xl border-2 border-primary/20 hover:border-primary/40 transition-spring"
+                  onClick={() => window.location.href = 'mailto:agbide7@gmail.com'}
+                >
                   <Mail className="h-4 w-4 mr-2" />
                   agbide7@gmail.com
                 </Button>
               </CardContent>
             </Card>
 
-            <Card className="card-glow hover-lift transition-smooth">
+            <Card className="framer-card transition-spring">
               <CardHeader>
-                <CardTitle className="text-xl flex items-center gap-3">
-                  <Phone className="h-6 w-6 text-primary" />
+                <CardTitle className="text-2xl flex items-center gap-4">
+                  <div className="p-3 rounded-2xl bg-primary/10">
+                    <Phone className="h-6 w-6 text-primary" />
+                  </div>
                   Phone
                 </CardTitle>
               </CardHeader>
               <CardContent>
-                <p className="text-muted-foreground mb-4">
-                  Available for calls during business hours (IST).
+                <p className="text-muted-foreground mb-6 leading-relaxed">
+                  Available for calls during business hours (9 AM - 6 PM IST).
                 </p>
-                <Button variant="outline" className="w-full">
+                <Button 
+                  variant="outline" 
+                  className="w-full h-12 rounded-2xl border-2 border-primary/20 hover:border-primary/40 transition-spring"
+                  onClick={() => window.location.href = 'tel:+919322832034'}
+                >
                   <Phone className="h-4 w-4 mr-2" />
                   +91 9322832034
                 </Button>
               </CardContent>
             </Card>
 
-            <Card className="card-glow hover-lift transition-smooth">
+            <Card className="framer-card transition-spring">
               <CardHeader>
-                <CardTitle className="text-xl flex items-center gap-3">
-                  <MapPin className="h-6 w-6 text-primary" />
-                  Location
+                <CardTitle className="text-2xl flex items-center gap-4">
+                  <div className="p-3 rounded-2xl bg-primary/10">
+                    <MapPin className="h-6 w-6 text-primary" />
+                  </div>
+                  Location & Links
                 </CardTitle>
               </CardHeader>
               <CardContent>
-                <p className="text-muted-foreground mb-4">
+                <p className="text-muted-foreground mb-6 leading-relaxed">
                   Based in Jalna, Maharashtra, India. Open to remote work globally.
                 </p>
-                <div className="flex gap-2">
-                  <Button variant="outline" className="flex-1">
+                <div className="flex flex-col gap-3">
+                  <Button 
+                    variant="outline" 
+                    className="w-full h-12 rounded-2xl border-2 border-primary/20 hover:border-primary/40 transition-spring"
+                    onClick={() => window.open('https://linkedin.com/in/arunbide', '_blank')}
+                  >
                     <ExternalLink className="h-4 w-4 mr-2" />
-                    LinkedIn
+                    LinkedIn Profile
                   </Button>
-                  <Button variant="outline" className="flex-1">
+                  <Button 
+                    variant="outline" 
+                    className="w-full h-12 rounded-2xl border-2 border-primary/20 hover:border-primary/40 transition-spring"
+                    onClick={() => window.open('https://fiverr.com/arunbide', '_blank')}
+                  >
                     <ExternalLink className="h-4 w-4 mr-2" />
-                    Fiverr
+                    Fiverr Profile
                   </Button>
                 </div>
               </CardContent>
             </Card>
           </div>
 
-          {/* Contact Form */}
-          <Card className="card-glow hover-lift transition-smooth">
-            <CardHeader>
-              <CardTitle className="text-xl">Send a Message</CardTitle>
-            </CardHeader>
-            <CardContent>
-              <form className="space-y-6">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  <div>
-                    <label htmlFor="name" className="block text-sm font-medium mb-2">
-                      Name
-                    </label>
-                    <Input id="name" placeholder="Your name" />
+          {/* Schedule Call Card */}
+          <div className="lg:flex lg:items-center">
+            <Card className="framer-card transition-spring h-full">
+              <CardHeader className="text-center pb-8">
+                <div className="mx-auto mb-6 p-6 rounded-3xl bg-gradient-to-br from-primary/20 to-accent/20 w-fit">
+                  <Calendar className="h-12 w-12 text-primary mx-auto" />
+                </div>
+                <CardTitle className="text-3xl mb-4 framer-text-gradient">
+                  Schedule a Call
+                </CardTitle>
+                <p className="text-muted-foreground text-lg leading-relaxed">
+                  Ready to discuss your project? Let's schedule a call to talk about your requirements, 
+                  timeline, and how I can help bring your Android app idea to life.
+                </p>
+              </CardHeader>
+              <CardContent className="text-center">
+                <div className="space-y-6">
+                  <div className="grid grid-cols-2 gap-4 text-sm">
+                    <div className="framer-badge">
+                      <span className="text-primary">📱</span> Android Apps
+                    </div>
+                    <div className="framer-badge">
+                      <span className="text-primary">🚀</span> Flutter Apps
+                    </div>
+                    <div className="framer-badge">
+                      <span className="text-primary">🔥</span> Firebase
+                    </div>
+                    <div className="framer-badge">
+                      <span className="text-primary">⚡</span> Kotlin/Java
+                    </div>
                   </div>
-                  <div>
-                    <label htmlFor="email" className="block text-sm font-medium mb-2">
-                      Email
-                    </label>
-                    <Input id="email" type="email" placeholder="your@email.com" />
-                  </div>
+                  
+                  <Button 
+                    onClick={handleScheduleCall}
+                    className="framer-button w-full h-14 text-lg font-semibold text-white border-0"
+                  >
+                    <Calendar className="h-5 w-5 mr-3" />
+                    Schedule Call Now
+                  </Button>
+                  
+                  <p className="text-xs text-muted-foreground">
+                    Free 15-minute consultation • Available Mon-Fri 9 AM - 6 PM IST
+                  </p>
                 </div>
-                <div>
-                  <label htmlFor="subject" className="block text-sm font-medium mb-2">
-                    Subject
-                  </label>
-                  <Input id="subject" placeholder="Project discussion" />
-                </div>
-                <div>
-                  <label htmlFor="message" className="block text-sm font-medium mb-2">
-                    Message
-                  </label>
-                  <Textarea 
-                    id="message" 
-                    placeholder="Tell me about your project requirements..."
-                    className="min-h-[120px]"
-                  />
-                </div>
-                <Button type="submit" className="w-full bg-primary hover:bg-primary/90">
-                  <Send className="h-4 w-4 mr-2" />
-                  Send Message
-                </Button>
-              </form>
-            </CardContent>
-          </Card>
+              </CardContent>
+            </Card>
+          </div>
         </div>
       </div>
     </section>

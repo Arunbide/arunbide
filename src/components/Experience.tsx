@@ -1,118 +1,143 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Building, GraduationCap, Calendar, MapPin } from "lucide-react";
+import { Building, GraduationCap, Calendar, MapPin, Award, Users } from "lucide-react";
 
 const Experience = () => {
   return (
-    <section id="experience" className="py-20 px-4">
+    <section id="experience" className="py-32 px-4">
       <div className="container mx-auto">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold mb-4">Experience & Education</h2>
-          <p className="text-xl text-muted-foreground">
-            My professional journey and educational background
+        <div className="text-center mb-20">
+          <div className="flex items-center justify-center gap-2 mb-6">
+            <Award className="h-6 w-6 text-primary" />
+            <span className="text-primary font-semibold">Background</span>
+          </div>
+          <h2 className="text-5xl font-bold mb-6 framer-text-gradient">Experience & Education</h2>
+          <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+            My journey in software development and continuous learning
           </p>
         </div>
         
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
           {/* Work Experience */}
           <div className="space-y-8">
-            <h3 className="text-2xl font-semibold mb-6 flex items-center gap-3">
-              <Building className="h-6 w-6 text-primary" />
+            <h3 className="text-3xl font-bold mb-8 flex items-center gap-4">
+              <div className="p-3 rounded-2xl bg-primary/10">
+                <Building className="h-6 w-6 text-primary" />
+              </div>
               Work Experience
             </h3>
             
-            <Card className="card-glow hover-lift transition-smooth">
+            <Card className="framer-card transition-spring">
               <CardHeader>
-                <div className="flex items-start justify-between">
+                <div className="flex items-start justify-between mb-4">
                   <div>
-                    <CardTitle className="text-xl">Freelance Android Developer</CardTitle>
-                    <CardDescription className="text-primary font-medium">
+                    <CardTitle className="text-2xl mb-2">Freelance Android Developer</CardTitle>
+                    <CardDescription className="text-lg text-primary font-semibold">
                       Bank UP (USA-based Startup)
                     </CardDescription>
                   </div>
-                  <Badge variant="secondary" className="text-xs">
+                  <Badge variant="secondary" className="framer-badge">
                     <Calendar className="h-3 w-3 mr-1" />
                     2023 - Present
                   </Badge>
                 </div>
               </CardHeader>
               <CardContent>
-                <ul className="space-y-2 text-muted-foreground">
-                  <li className="flex items-start gap-2">
-                    <span className="text-primary mt-1">•</span>
-                    Developed bank locator app with bonus offers and referral system
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <span className="text-primary mt-1">•</span>
-                    Resolved technical issues and enhanced application performance
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <span className="text-primary mt-1">•</span>
-                    Managed Google Play Console and app compliance
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <span className="text-primary mt-1">•</span>
-                    Collaborated with development team on feature planning
-                  </li>
-                </ul>
+                <div className="space-y-4">
+                  <div className="flex items-start gap-3">
+                    <div className="w-2 h-2 bg-primary rounded-full mt-2 flex-shrink-0"></div>
+                    <p className="text-muted-foreground">
+                      Developed bank locator app with bonus offers and referral system, 
+                      enhancing user engagement and promoting financial services
+                    </p>
+                  </div>
+                  <div className="flex items-start gap-3">
+                    <div className="w-2 h-2 bg-primary rounded-full mt-2 flex-shrink-0"></div>
+                    <p className="text-muted-foreground">
+                      Resolved technical issues and enhanced application performance through 
+                      systematic debugging and optimization
+                    </p>
+                  </div>
+                  <div className="flex items-start gap-3">
+                    <div className="w-2 h-2 bg-primary rounded-full mt-2 flex-shrink-0"></div>
+                    <p className="text-muted-foreground">
+                      Managed Google Play Console operations and ensured compliance with 
+                      platform policies and guidelines
+                    </p>
+                  </div>
+                  <div className="flex items-start gap-3">
+                    <div className="w-2 h-2 bg-primary rounded-full mt-2 flex-shrink-0"></div>
+                    <p className="text-muted-foreground">
+                      Collaborated with development team on feature planning and 
+                      learned industry best practices
+                    </p>
+                  </div>
+                </div>
               </CardContent>
             </Card>
 
-            <Card className="card-glow hover-lift transition-smooth">
+            <Card className="framer-card transition-spring">
               <CardHeader>
-                <div className="flex items-start justify-between">
+                <div className="flex items-start justify-between mb-4">
                   <div>
-                    <CardTitle className="text-xl">Freelance Developer</CardTitle>
-                    <CardDescription className="text-primary font-medium">
+                    <CardTitle className="text-2xl mb-2">Freelance Developer</CardTitle>
+                    <CardDescription className="text-lg text-primary font-semibold">
                       Fiverr Platform
                     </CardDescription>
                   </div>
-                  <Badge variant="secondary" className="text-xs">
+                  <Badge variant="secondary" className="framer-badge">
                     <Calendar className="h-3 w-3 mr-1" />
                     2022 - Present
                   </Badge>
                 </div>
               </CardHeader>
               <CardContent>
-                <ul className="space-y-2 text-muted-foreground">
-                  <li className="flex items-start gap-2">
-                    <span className="text-primary mt-1">•</span>
-                    Created and deployed multiple Android applications
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <span className="text-primary mt-1">•</span>
-                    Utilized Firebase for authentication, database, and storage
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <span className="text-primary mt-1">•</span>
-                    Managed client console accounts and app publishing
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <span className="text-primary mt-1">•</span>
-                    Ensured platform compliance and successful deliveries
-                  </li>
-                </ul>
+                <div className="space-y-4">
+                  <div className="flex items-start gap-3">
+                    <div className="w-2 h-2 bg-primary rounded-full mt-2 flex-shrink-0"></div>
+                    <p className="text-muted-foreground">
+                      Created and deployed multiple Android applications utilizing 
+                      Firebase ecosystem and modern development practices
+                    </p>
+                  </div>
+                  <div className="flex items-start gap-3">
+                    <div className="w-2 h-2 bg-primary rounded-full mt-2 flex-shrink-0"></div>
+                    <p className="text-muted-foreground">
+                      Gained practical experience with Kotlin, Android Framework, 
+                      and third-party library integration
+                    </p>
+                  </div>
+                  <div className="flex items-start gap-3">
+                    <div className="w-2 h-2 bg-primary rounded-full mt-2 flex-shrink-0"></div>
+                    <p className="text-muted-foreground">
+                      Managed complete project lifecycle from development to 
+                      publishing and client satisfaction
+                    </p>
+                  </div>
+                </div>
               </CardContent>
             </Card>
           </div>
 
-          {/* Education */}
+          {/* Education & Languages */}
           <div className="space-y-8">
-            <h3 className="text-2xl font-semibold mb-6 flex items-center gap-3">
-              <GraduationCap className="h-6 w-6 text-primary" />
-              Education
+            <h3 className="text-3xl font-bold mb-8 flex items-center gap-4">
+              <div className="p-3 rounded-2xl bg-primary/10">
+                <GraduationCap className="h-6 w-6 text-primary" />
+              </div>
+              Education & Languages
             </h3>
             
-            <Card className="card-glow hover-lift transition-smooth">
+            <Card className="framer-card transition-spring">
               <CardHeader>
-                <div className="flex items-start justify-between">
+                <div className="flex items-start justify-between mb-4">
                   <div>
-                    <CardTitle className="text-xl">Bachelor in Computer Science</CardTitle>
-                    <CardDescription className="text-primary font-medium">
+                    <CardTitle className="text-2xl mb-2">Bachelor in Computer Science</CardTitle>
+                    <CardDescription className="text-lg text-primary font-semibold">
                       Dr. Babasaheb Ambedkar Marathwada University
                     </CardDescription>
                   </div>
-                  <Badge variant="secondary" className="text-xs">
+                  <Badge variant="secondary" className="framer-badge">
                     <Calendar className="h-3 w-3 mr-1" />
                     2022 - 2025
                   </Badge>
@@ -123,31 +148,34 @@ const Experience = () => {
                   <MapPin className="h-4 w-4" />
                   <span>Maharashtra, India</span>
                 </div>
-                <p className="text-muted-foreground">
-                  Currently pursuing Bachelor's degree in Computer Science with focus on 
-                  software development, data structures, algorithms, and mobile application development.
+                <p className="text-muted-foreground leading-relaxed">
+                  Pursuing comprehensive education in Computer Science with specialization in 
+                  software development, data structures, algorithms, and modern mobile 
+                  application development methodologies.
                 </p>
               </CardContent>
             </Card>
 
-            {/* Languages */}
-            <Card className="card-glow hover-lift transition-smooth">
+            <Card className="framer-card transition-spring">
               <CardHeader>
-                <CardTitle className="text-xl">Languages</CardTitle>
+                <CardTitle className="text-2xl flex items-center gap-3">
+                  <Users className="h-6 w-6 text-primary" />
+                  Languages
+                </CardTitle>
               </CardHeader>
               <CardContent>
-                <div className="space-y-3">
-                  <div className="flex items-center justify-between">
-                    <span className="font-medium">Marathi</span>
-                    <Badge variant="secondary">Native</Badge>
+                <div className="space-y-4">
+                  <div className="flex items-center justify-between p-3 rounded-xl bg-muted/30">
+                    <span className="font-semibold">Marathi</span>
+                    <Badge variant="secondary" className="bg-primary/10 text-primary">Native</Badge>
                   </div>
-                  <div className="flex items-center justify-between">
-                    <span className="font-medium">Hindi</span>
-                    <Badge variant="secondary">Fluent</Badge>
+                  <div className="flex items-center justify-between p-3 rounded-xl bg-muted/30">
+                    <span className="font-semibold">Hindi</span>
+                    <Badge variant="secondary" className="bg-primary/10 text-primary">Fluent</Badge>
                   </div>
-                  <div className="flex items-center justify-between">
-                    <span className="font-medium">English</span>
-                    <Badge variant="secondary">Intermediate</Badge>
+                  <div className="flex items-center justify-between p-3 rounded-xl bg-muted/30">
+                    <span className="font-semibold">English</span>
+                    <Badge variant="secondary" className="bg-primary/10 text-primary">Intermediate</Badge>
                   </div>
                 </div>
               </CardContent>
