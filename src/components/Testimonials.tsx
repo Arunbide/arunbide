@@ -1,8 +1,20 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Star } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { Star, ChevronLeft, ChevronRight } from "lucide-react";
+import useEmblaCarousel from 'embla-carousel-react';
+import { useCallback, useEffect, useState } from 'react';
 
 const Testimonials = () => {
+  const [emblaRef, emblaApi] = useEmblaCarousel({ 
+    loop: true,
+    align: 'start',
+    skipSnaps: false,
+    dragFree: true,
+  });
+  const [canScrollPrev, setCanScrollPrev] = useState(false);
+  const [canScrollNext, setCanScrollNext] = useState(false);
+
   const testimonials = [
     {
       name: "sireeshaba",
@@ -41,6 +53,27 @@ const Testimonials = () => {
     }
   ];
 
+  const scrollPrev = useCallback(() => {
+    if (emblaApi) emblaApi.scrollPrev();
+  }, [emblaApi]);
+
+  const scrollNext = useCallback(() => {
+    if (emblaApi) emblaApi.scrollNext();
+  }, [emblaApi]);
+
+  const onSelect = useCallback(() => {
+    if (!emblaApi) return;
+    setCanScrollPrev(emblaApi.canScrollPrev());
+    setCanScrollNext(emblaApi.canScrollNext());
+  }, [emblaApi]);
+
+  useEffect(() => {
+    if (!emblaApi) return;
+    onSelect();
+    emblaApi.on('select', onSelect);
+    emblaApi.on('reInit', onSelect);
+  }, [emblaApi, onSelect]);
+
   const renderStars = (rating: number) => {
     const fullStars = Math.floor(rating);
     const hasHalfStar = rating % 1 !== 0;
@@ -68,47 +101,89 @@ const Testimonials = () => {
   };
 
   return (
-    <section id="testimonials" className="py-32 px-4 bg-background">
-      <div className="container mx-auto">
+    <section id="testimonials" className="py-32 px-4 bg-background relative overflow-hidden">
+      {/* Background Elements */}
+      <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-accent/5" />
+      <div className="absolute top-20 left-10 w-32 h-32 bg-primary/10 rounded-full blur-3xl animate-float" />
+      <div className="absolute bottom-20 right-10 w-24 h-24 bg-accent/10 rounded-full blur-2xl animate-float-delayed" />
+      
+      <div className="container mx-auto relative z-10">
         <div className="text-center mb-20">
-          <h2 className="text-5xl font-bold mb-6 framer-text-gradient">Client Testimonials</h2>
+          <h2 className="text-5xl md:text-6xl font-bold mb-6 framer-text-gradient">
+            Client Testimonials
+          </h2>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
             What my clients say about working with me
           </p>
         </div>
         
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
-          {testimonials.map((testimonial, index) => (
-            <Card 
-              key={index} 
-              className="framer-card transition-spring hover:scale-105 h-full flex flex-col"
-            >
-              <CardHeader className="pb-4">
-                <div className="flex items-center justify-between mb-4">
-                  <div>
-                    <CardTitle className="text-lg font-semibold">{testimonial.name}</CardTitle>
-                    <div className="flex items-center gap-2 mt-1">
-                      <span className="text-sm text-muted-foreground">{testimonial.country}</span>
-                      {testimonial.role === "Repeat Client" && (
-                        <Badge variant="secondary" className="text-xs">
-                          Repeat Client
-                        </Badge>
-                      )}
-                    </div>
-                  </div>
-                  <div className="flex items-center gap-1">
-                    {renderStars(testimonial.rating)}
-                    <span className="text-sm font-medium ml-1">{testimonial.rating}</span>
-                  </div>
+        {/* Slider Container */}
+        <div className="relative max-w-6xl mx-auto">
+          {/* Navigation Buttons */}
+          <div className="flex justify-between items-center mb-8">
+            <div className="flex gap-3">
+              <Button
+                variant="outline"
+                size="icon"
+                onClick={scrollPrev}
+                disabled={!canScrollPrev}
+                className="rounded-full border-2 hover:scale-110 transition-all duration-300 disabled:opacity-50"
+              >
+                <ChevronLeft className="h-4 w-4" />
+              </Button>
+              <Button
+                variant="outline"
+                size="icon"
+                onClick={scrollNext}
+                disabled={!canScrollNext}
+                className="rounded-full border-2 hover:scale-110 transition-all duration-300 disabled:opacity-50"
+              >
+                <ChevronRight className="h-4 w-4" />
+              </Button>
+            </div>
+          </div>
+
+          {/* Carousel */}
+          <div className="embla" ref={emblaRef}>
+            <div className="embla__container flex gap-6">
+              {testimonials.map((testimonial, index) => (
+                <div key={index} className="embla__slide flex-[0_0_100%] md:flex-[0_0_50%] lg:flex-[0_0_33.33%] min-w-0">
+                  <Card className="framer-card h-full flex flex-col bg-card/60 backdrop-blur-sm border-2 border-primary/10 hover:border-primary/20 transition-all duration-500 group">
+                    <CardHeader className="pb-6">
+                      <div className="flex items-start justify-between mb-4">
+                        <div className="flex-1">
+                          <CardTitle className="text-xl font-bold text-foreground group-hover:text-primary transition-colors duration-300">
+                            {testimonial.name}
+                          </CardTitle>
+                          <div className="flex items-center gap-3 mt-2">
+                            <span className="text-sm font-medium text-muted-foreground">
+                              {testimonial.country}
+                            </span>
+                            {testimonial.role === "Repeat Client" && (
+                              <Badge variant="secondary" className="text-xs bg-primary/10 text-primary border-primary/20">
+                                Repeat Client
+                              </Badge>
+                            )}
+                          </div>
+                        </div>
+                        <div className="flex items-center gap-1 bg-muted/50 px-3 py-1.5 rounded-full">
+                          {renderStars(testimonial.rating)}
+                          <span className="text-sm font-bold ml-1 text-foreground">{testimonial.rating}</span>
+                        </div>
+                      </div>
+                    </CardHeader>
+                    <CardContent className="flex-1 pb-6">
+                      <blockquote className="text-muted-foreground leading-relaxed text-sm italic relative">
+                        <span className="text-4xl text-primary/20 absolute -top-2 -left-1">"</span>
+                        <span className="relative z-10">{testimonial.review}</span>
+                        <span className="text-4xl text-primary/20 absolute -bottom-6 -right-1">"</span>
+                      </blockquote>
+                    </CardContent>
+                  </Card>
                 </div>
-              </CardHeader>
-              <CardContent className="flex-1">
-                <blockquote className="text-muted-foreground leading-relaxed">
-                  "{testimonial.review}"
-                </blockquote>
-              </CardContent>
-            </Card>
-          ))}
+              ))}
+            </div>
+          </div>
         </div>
 
         {/* Stats */}
