@@ -1,6 +1,6 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Mail, Phone, MapPin, ExternalLink, Calendar } from "lucide-react";
+import { Mail, Phone, Calendar } from "lucide-react";
 
 const Contact = () => {
   const handleScheduleCall = () => {
@@ -68,39 +68,6 @@ const Contact = () => {
               </CardContent>
             </Card>
 
-            <Card className="framer-card transition-spring">
-              <CardHeader>
-                <CardTitle className="text-2xl flex items-center gap-4">
-                  <div className="p-3 rounded-2xl bg-primary/10">
-                    <MapPin className="h-6 w-6 text-primary" />
-                  </div>
-                  Location & Links
-                </CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-muted-foreground mb-6 leading-relaxed">
-                  Based in Jalna, Maharashtra, India. Open to remote work globally.
-                </p>
-                <div className="flex flex-col gap-3">
-                  <Button 
-                    variant="outline" 
-                    className="w-full h-12 rounded-2xl border-2 border-primary/20 hover:border-primary/40 transition-spring"
-                    onClick={() => window.open('https://linkedin.com/in/arunbide', '_blank')}
-                  >
-                    <ExternalLink className="h-4 w-4 mr-2" />
-                    LinkedIn Profile
-                  </Button>
-                  <Button 
-                    variant="outline" 
-                    className="w-full h-12 rounded-2xl border-2 border-primary/20 hover:border-primary/40 transition-spring"
-                    onClick={() => window.open('https://fiverr.com/arunbide', '_blank')}
-                  >
-                    <ExternalLink className="h-4 w-4 mr-2" />
-                    Fiverr Profile
-                  </Button>
-                </div>
-              </CardContent>
-            </Card>
           </div>
 
           {/* Schedule Call Card */}
@@ -122,16 +89,16 @@ const Contact = () => {
                 <div className="space-y-6">
                   <div className="grid grid-cols-2 gap-4 text-sm">
                     <div className="framer-badge">
-                      <span className="text-primary">📱</span> Android Apps
+                      Android Apps
                     </div>
                     <div className="framer-badge">
-                      <span className="text-primary">🚀</span> Flutter Apps
+                      Flutter Apps
                     </div>
                     <div className="framer-badge">
-                      <span className="text-primary">🔥</span> Firebase
+                      Firebase
                     </div>
                     <div className="framer-badge">
-                      <span className="text-primary">⚡</span> Kotlin/Java
+                      Kotlin/Java
                     </div>
                   </div>
                   
