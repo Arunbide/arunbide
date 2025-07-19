@@ -37,8 +37,7 @@ const Experience = () => {
                     </CardDescription>
                   </div>
                   <Badge variant="secondary" className="framer-badge">
-                    <Calendar className="h-3 w-3 mr-1" />
-                    2023 - Present
+                    Freelance
                   </Badge>
                 </div>
               </CardHeader>
@@ -86,8 +85,7 @@ const Experience = () => {
                     </CardDescription>
                   </div>
                   <Badge variant="secondary" className="framer-badge">
-                    <Calendar className="h-3 w-3 mr-1" />
-                    2022 - Present
+                    Freelance
                   </Badge>
                 </div>
               </CardHeader>
@@ -139,7 +137,7 @@ const Experience = () => {
                   </div>
                   <Badge variant="secondary" className="framer-badge">
                     <Calendar className="h-3 w-3 mr-1" />
-                    2022 - 2025
+                    2022 - 2025 (Completed)
                   </Badge>
                 </div>
               </CardHeader>
@@ -149,7 +147,7 @@ const Experience = () => {
                   <span>Maharashtra, India</span>
                 </div>
                 <p className="text-muted-foreground leading-relaxed">
-                  Pursuing comprehensive education in Computer Science with specialization in 
+                  Completed comprehensive education in Computer Science with specialization in 
                   software development, data structures, algorithms, and modern mobile 
                   application development methodologies.
                 </p>

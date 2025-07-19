@@ -97,15 +97,12 @@ const Skills = () => {
             </p>
             <div className="flex flex-wrap gap-3 justify-center">
               <div className="framer-badge">
-                <span className="text-primary mr-2">⚡</span>
                 Fast Development
               </div>
               <div className="framer-badge">
-                <span className="text-primary mr-2">🎯</span>
                 Quality Code
               </div>
               <div className="framer-badge">
-                <span className="text-primary mr-2">🚀</span>
                 Modern Tech
               </div>
             </div>

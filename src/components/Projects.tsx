@@ -8,43 +8,37 @@ const Projects = () => {
       title: "Bhakti Point",
       description: "A Flutter application for streaming spiritual music and kathas. Fully dynamic content management using Firebase and AWS S3 for storage.",
       tech: ["Flutter", "Firebase", "AWS S3"],
-      highlight: "Dynamic content management",
-      icon: "🎵"
+      highlight: "Dynamic content management"
     },
     {
       title: "KKN Live",
       description: "Real-time news app with category-based filtering, search functionality, push notifications, and intuitive user interface.",
       tech: ["Java", "FMS", "XML"],
-      highlight: "Real-time news delivery",
-      icon: "📰"
+      highlight: "Real-time news delivery"
     },
     {
       title: "CloudTrack",
       description: "Weather tracking app using live location and OpenWeather API. Dynamic UI that adapts to weather conditions.",
       tech: ["Kotlin", "Retrofit", "OpenWeather API"],
-      highlight: "Dynamic weather-based UI",
-      icon: "🌤️"
+      highlight: "Dynamic weather-based UI"
     },
     {
       title: "Contact App",
       description: "Modern contact management app built with Jetpack Compose, featuring Room database and clean architecture.",
       tech: ["Jetpack Compose", "Kotlin", "Room", "Dagger-Hilt", "MVVM"],
-      highlight: "Modern Android architecture",
-      icon: "👥"
+      highlight: "Modern Android architecture"
     },
     {
       title: "HealthSync",
       description: "Health and medicine tracker with AI-powered chatbot using OpenAI API for personalized health advice and medication reminders.",
       tech: ["Kotlin", "Jetpack Compose", "MVVM", "Dagger Hilt", "OpenAI API"],
-      highlight: "AI-powered health assistant",
-      icon: "🏥"
+      highlight: "AI-powered health assistant"
     },
     {
       title: "SoulScribe",
       description: "Personal journaling app with privacy-first features including app lock. Secure and organized note-keeping application.",
       tech: ["Kotlin", "Jetpack Compose", "MVVM", "Room", "Dagger Hilt"],
-      highlight: "Privacy-focused design",
-      icon: "📝"
+      highlight: "Privacy-focused design"
     }
   ];
 
@@ -70,8 +64,7 @@ const Projects = () => {
               style={{ animationDelay: `${index * 0.1}s` }}
             >
               <CardHeader className="pb-4">
-                <div className="flex items-center justify-between mb-4">
-                  <div className="text-3xl">{project.icon}</div>
+                <div className="flex items-center justify-end mb-4">
                   <div className="flex gap-2 opacity-50 group-hover:opacity-100 transition-opacity">
                     <ExternalLink className="h-4 w-4" />
                     <Github className="h-4 w-4" />
