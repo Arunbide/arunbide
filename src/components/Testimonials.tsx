@@ -3,17 +3,20 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Star, ChevronLeft, ChevronRight } from "lucide-react";
 import useEmblaCarousel from 'embla-carousel-react';
+import Autoplay from 'embla-carousel-autoplay';
 import { useCallback, useEffect, useState } from 'react';
 
 const Testimonials = () => {
-  const [emblaRef, emblaApi] = useEmblaCarousel({ 
-    loop: true,
-    align: 'start',
-    skipSnaps: false,
-    dragFree: true,
-  });
+  const [emblaRef, emblaApi] = useEmblaCarousel(
+    { 
+      loop: true,
+      align: 'center',
+    },
+    [Autoplay({ delay: 5000, stopOnInteraction: false })]
+  );
   const [canScrollPrev, setCanScrollPrev] = useState(false);
   const [canScrollNext, setCanScrollNext] = useState(false);
+  const [selectedIndex, setSelectedIndex] = useState(0);
 
   const testimonials = [
     {
@@ -65,6 +68,7 @@ const Testimonials = () => {
     if (!emblaApi) return;
     setCanScrollPrev(emblaApi.canScrollPrev());
     setCanScrollNext(emblaApi.canScrollNext());
+    setSelectedIndex(emblaApi.selectedScrollSnap());
   }, [emblaApi]);
 
   useEffect(() => {
@@ -118,71 +122,88 @@ const Testimonials = () => {
         </div>
         
         {/* Slider Container */}
-        <div className="relative max-w-6xl mx-auto">
-          {/* Navigation Buttons */}
-          <div className="flex justify-between items-center mb-8">
-            <div className="flex gap-3">
-              <Button
-                variant="outline"
-                size="icon"
-                onClick={scrollPrev}
-                disabled={!canScrollPrev}
-                className="rounded-full border-2 hover:scale-110 transition-all duration-300 disabled:opacity-50"
-              >
-                <ChevronLeft className="h-4 w-4" />
-              </Button>
-              <Button
-                variant="outline"
-                size="icon"
-                onClick={scrollNext}
-                disabled={!canScrollNext}
-                className="rounded-full border-2 hover:scale-110 transition-all duration-300 disabled:opacity-50"
-              >
-                <ChevronRight className="h-4 w-4" />
-              </Button>
-            </div>
-          </div>
-
+        <div className="relative max-w-4xl mx-auto">
           {/* Carousel */}
           <div className="embla" ref={emblaRef}>
-            <div className="embla__container flex gap-6">
+            <div className="embla__container flex">
               {testimonials.map((testimonial, index) => (
-                <div key={index} className="embla__slide flex-[0_0_100%] md:flex-[0_0_50%] lg:flex-[0_0_33.33%] min-w-0">
-                  <Card className="framer-card h-full flex flex-col bg-card/60 backdrop-blur-sm border-2 border-primary/10 hover:border-primary/20 transition-all duration-500 group">
-                    <CardHeader className="pb-6">
-                      <div className="flex items-start justify-between mb-4">
-                        <div className="flex-1">
-                          <CardTitle className="text-xl font-bold text-foreground group-hover:text-primary transition-colors duration-300">
-                            {testimonial.name}
-                          </CardTitle>
-                          <div className="flex items-center gap-3 mt-2">
-                            <span className="text-sm font-medium text-muted-foreground">
-                              {testimonial.country}
-                            </span>
-                            {testimonial.role === "Repeat Client" && (
-                              <Badge variant="secondary" className="text-xs bg-primary/10 text-primary border-primary/20">
-                                Repeat Client
-                              </Badge>
-                            )}
-                          </div>
+                <div key={index} className="embla__slide flex-[0_0_100%] min-w-0 px-4">
+                  <Card className="framer-card h-full flex flex-col bg-card/60 backdrop-blur-sm border-2 border-primary/10 hover:border-primary/20 transition-all duration-500 group mx-auto max-w-3xl">
+                    <CardHeader className="pb-6 text-center">
+                      <div className="flex flex-col items-center mb-6">
+                        <div className="w-20 h-20 rounded-full bg-gradient-to-br from-primary/20 to-accent/20 flex items-center justify-center mb-4">
+                          <span className="text-2xl font-bold text-primary">{testimonial.name.charAt(0).toUpperCase()}</span>
                         </div>
-                        <div className="flex items-center gap-1 bg-muted/50 px-3 py-1.5 rounded-full">
+                        <CardTitle className="text-2xl font-bold text-foreground group-hover:text-primary transition-colors duration-300">
+                          {testimonial.name}
+                        </CardTitle>
+                        <div className="flex items-center gap-3 mt-2">
+                          <span className="text-sm font-medium text-muted-foreground">
+                            {testimonial.country}
+                          </span>
+                          {testimonial.role === "Repeat Client" && (
+                            <Badge variant="secondary" className="text-xs bg-primary/10 text-primary border-primary/20">
+                              Repeat Client
+                            </Badge>
+                          )}
+                        </div>
+                        <div className="flex items-center gap-1 bg-muted/50 px-4 py-2 rounded-full mt-4">
                           {renderStars(testimonial.rating)}
-                          <span className="text-sm font-bold ml-1 text-foreground">{testimonial.rating}</span>
+                          <span className="text-sm font-bold ml-2 text-foreground">{testimonial.rating}</span>
                         </div>
                       </div>
                     </CardHeader>
-                    <CardContent className="flex-1 pb-6">
-                      <blockquote className="text-muted-foreground leading-relaxed text-sm italic relative">
-                        <span className="text-4xl text-primary/20 absolute -top-2 -left-1">"</span>
-                        <span className="relative z-10">{testimonial.review}</span>
-                        <span className="text-4xl text-primary/20 absolute -bottom-6 -right-1">"</span>
+                    <CardContent className="flex-1 pb-8 text-center">
+                      <blockquote className="text-muted-foreground leading-relaxed text-lg italic relative">
+                        <span className="text-6xl text-primary/20 absolute -top-4 -left-4">"</span>
+                        <span className="relative z-10 block px-8">{testimonial.review}</span>
+                        <span className="text-6xl text-primary/20 absolute -bottom-8 -right-4">"</span>
                       </blockquote>
                     </CardContent>
                   </Card>
                 </div>
               ))}
             </div>
+          </div>
+
+          {/* Navigation Buttons */}
+          <div className="absolute top-1/2 -translate-y-1/2 left-4 md:-left-16">
+            <Button
+              variant="outline"
+              size="icon"
+              onClick={scrollPrev}
+              disabled={!canScrollPrev}
+              className="rounded-full border-2 hover:scale-110 transition-all duration-300 disabled:opacity-50 w-12 h-12 bg-background/80 backdrop-blur-sm"
+            >
+              <ChevronLeft className="h-5 w-5" />
+            </Button>
+          </div>
+          
+          <div className="absolute top-1/2 -translate-y-1/2 right-4 md:-right-16">
+            <Button
+              variant="outline"
+              size="icon"
+              onClick={scrollNext}
+              disabled={!canScrollNext}
+              className="rounded-full border-2 hover:scale-110 transition-all duration-300 disabled:opacity-50 w-12 h-12 bg-background/80 backdrop-blur-sm"
+            >
+              <ChevronRight className="h-5 w-5" />
+            </Button>
+          </div>
+
+          {/* Dots Indicator */}
+          <div className="flex justify-center gap-2 mt-8">
+            {testimonials.map((_, index) => (
+              <button
+                key={index}
+                onClick={() => emblaApi?.scrollTo(index)}
+                className={`w-3 h-3 rounded-full transition-all duration-300 ${
+                  index === selectedIndex 
+                    ? 'bg-primary scale-125' 
+                    : 'bg-muted-foreground/30 hover:bg-muted-foreground/50'
+                }`}
+              />
+            ))}
           </div>
         </div>
 
