@@ -117,13 +117,13 @@ const Experience = () => {
             </Card>
           </div>
 
-          {/* Education & Languages */}
+          {/* Education */}
           <div className="space-y-8">
             <h3 className="text-3xl font-bold mb-8 flex items-center gap-4">
               <div className="p-3 rounded-2xl bg-primary/10">
                 <GraduationCap className="h-6 w-6 text-primary" />
               </div>
-              Education & Languages
+              Education
             </h3>
             
             <Card className="framer-card transition-spring">
@@ -151,31 +151,6 @@ const Experience = () => {
                   software development, data structures, algorithms, and modern mobile 
                   application development methodologies.
                 </p>
-              </CardContent>
-            </Card>
-
-            <Card className="framer-card transition-spring">
-              <CardHeader>
-                <CardTitle className="text-2xl flex items-center gap-3">
-                  <Users className="h-6 w-6 text-primary" />
-                  Languages
-                </CardTitle>
-              </CardHeader>
-              <CardContent>
-                <div className="space-y-4">
-                  <div className="flex items-center justify-between p-3 rounded-xl bg-muted/30">
-                    <span className="font-semibold">Marathi</span>
-                    <Badge variant="secondary" className="bg-primary/10 text-primary">Native</Badge>
-                  </div>
-                  <div className="flex items-center justify-between p-3 rounded-xl bg-muted/30">
-                    <span className="font-semibold">Hindi</span>
-                    <Badge variant="secondary" className="bg-primary/10 text-primary">Fluent</Badge>
-                  </div>
-                  <div className="flex items-center justify-between p-3 rounded-xl bg-muted/30">
-                    <span className="font-semibold">English</span>
-                    <Badge variant="secondary" className="bg-primary/10 text-primary">Intermediate</Badge>
-                  </div>
-                </div>
               </CardContent>
             </Card>
           </div>
