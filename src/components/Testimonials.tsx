@@ -122,65 +122,65 @@ const Testimonials = () => {
         </div>
         
         {/* Slider Container */}
-        <div className="relative w-full max-w-5xl mx-auto">
+        <div className="relative w-full max-w-4xl mx-auto">
           {/* Carousel */}
-          <div className="embla overflow-hidden rounded-3xl" ref={emblaRef}>
+          <div className="embla overflow-hidden" ref={emblaRef}>
             <div className="embla__container flex">
               {testimonials.map((testimonial, index) => (
                 <div key={index} className="embla__slide flex-[0_0_100%] min-w-0">
-                  <Card className="h-full bg-gradient-to-br from-background via-background/95 to-background/90 backdrop-blur-2xl border border-border/20 shadow-2xl overflow-hidden">
-                    <CardContent className="p-0">
-                      {/* Background Pattern */}
-                      <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-accent/5" />
-                      <div className="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-primary via-accent to-primary" />
-                      
-                      <div className="relative z-10 p-8 md:p-16">
-                        {/* Quote Section */}
-                        <div className="text-center mb-12">
-                          <div className="inline-flex items-center justify-center w-20 h-20 mb-8 bg-gradient-to-br from-primary to-accent rounded-2xl shadow-lg">
-                            <span className="text-3xl text-primary-foreground font-bold">"</span>
-                          </div>
-                          
-                          <blockquote className="text-2xl md:text-3xl lg:text-4xl font-light text-foreground leading-relaxed mb-8 max-w-4xl mx-auto">
-                            "{testimonial.review}"
-                          </blockquote>
-                        </div>
-                        
-                        {/* Rating & Author Section */}
-                        <div className="flex flex-col md:flex-row items-center justify-between gap-8 pt-8 border-t border-border/30">
-                          {/* Author Info */}
-                          <div className="flex items-center gap-6">
-                            <div className="w-16 h-16 bg-gradient-to-br from-muted to-muted/60 rounded-2xl flex items-center justify-center shadow-md">
-                              <span className="text-2xl font-bold text-muted-foreground">
-                                {testimonial.name.charAt(0).toUpperCase()}
-                              </span>
-                            </div>
-                            <div>
-                              <h4 className="text-xl font-semibold text-foreground mb-1">
-                                {testimonial.name}
-                              </h4>
-                              <div className="flex items-center gap-3">
-                                <span className="text-muted-foreground">
-                                  {testimonial.country}
-                                </span>
-                                {testimonial.role === "Repeat Client" && (
-                                  <Badge variant="secondary" className="bg-primary/10 text-primary border-primary/20 font-medium">
-                                    Repeat Client
-                                  </Badge>
-                                )}
-                              </div>
-                            </div>
-                          </div>
-                          
-                          {/* Rating */}
-                          <div className="flex items-center gap-2 bg-gradient-to-r from-amber-50 to-orange-50 dark:from-amber-900/20 dark:to-orange-900/20 px-6 py-3 rounded-2xl border border-amber-200/50 dark:border-amber-800/50 shadow-sm">
-                            <div className="flex items-center gap-1">
-                              {renderStars(testimonial.rating)}
-                            </div>
-                            <span className="text-lg font-bold ml-2 text-amber-700 dark:text-amber-300">
-                              {testimonial.rating}
+                  <Card className="relative bg-gradient-to-br from-card/80 to-card/60 backdrop-blur-xl border border-border/20 rounded-3xl shadow-xl overflow-hidden">
+                    {/* Gradient Border */}
+                    <div className="absolute inset-0 bg-gradient-to-br from-primary/20 via-transparent to-accent/20 rounded-3xl" />
+                    <div className="absolute inset-[1px] bg-gradient-to-br from-background/95 to-background/90 rounded-3xl" />
+                    
+                    <CardContent className="relative z-10 p-8 md:p-12">
+                      {/* Top Section */}
+                      <div className="flex items-start justify-between mb-8">
+                        <div className="flex items-center gap-4">
+                          <div className="w-12 h-12 bg-gradient-to-br from-primary/20 to-accent/20 rounded-2xl flex items-center justify-center border border-border/30">
+                            <span className="text-lg font-semibold text-foreground">
+                              {testimonial.name.charAt(0).toUpperCase()}
                             </span>
                           </div>
+                          <div>
+                            <h4 className="text-base font-semibold text-foreground">
+                              {testimonial.name}
+                            </h4>
+                            <div className="flex items-center gap-2 mt-1">
+                              <span className="text-sm text-muted-foreground">
+                                {testimonial.country}
+                              </span>
+                              {testimonial.role === "Repeat Client" && (
+                                <Badge variant="secondary" className="text-xs bg-primary/10 text-primary border-primary/20 px-2 py-1">
+                                  Repeat
+                                </Badge>
+                              )}
+                            </div>
+                          </div>
+                        </div>
+                        
+                        {/* Rating */}
+                        <div className="flex items-center gap-1 bg-muted/30 px-3 py-2 rounded-xl border border-border/30">
+                          {renderStars(testimonial.rating)}
+                          <span className="text-sm font-medium ml-1 text-foreground">
+                            {testimonial.rating}
+                          </span>
+                        </div>
+                      </div>
+                      
+                      {/* Quote */}
+                      <blockquote className="relative">
+                        <div className="absolute -top-2 -left-2 text-4xl text-primary/20 font-serif">"</div>
+                        <p className="text-base md:text-lg text-foreground/90 leading-relaxed pl-6 pr-6 font-medium">
+                          {testimonial.review}
+                        </p>
+                        <div className="absolute -bottom-4 -right-2 text-4xl text-primary/20 font-serif rotate-180">"</div>
+                      </blockquote>
+                      
+                      {/* Bottom Accent */}
+                      <div className="mt-8 pt-6 border-t border-border/20">
+                        <div className="flex justify-center">
+                          <div className="w-12 h-1 bg-gradient-to-r from-primary to-accent rounded-full opacity-60" />
                         </div>
                       </div>
                     </CardContent>
@@ -191,15 +191,15 @@ const Testimonials = () => {
           </div>
 
           {/* Dots Indicator */}
-          <div className="flex justify-center gap-3 mt-8">
+          <div className="flex justify-center gap-2 mt-8">
             {testimonials.map((_, index) => (
               <button
                 key={index}
                 onClick={() => emblaApi?.scrollTo(index)}
-                className={`w-3 h-3 rounded-full transition-all duration-300 ${
+                className={`h-2 rounded-full transition-all duration-300 ${
                   index === selectedIndex 
-                    ? 'bg-primary scale-125 shadow-lg' 
-                    : 'bg-muted-foreground/30 hover:bg-muted-foreground/50'
+                    ? 'w-8 bg-primary shadow-lg' 
+                    : 'w-2 bg-muted-foreground/30 hover:bg-muted-foreground/50'
                 }`}
               />
             ))}
