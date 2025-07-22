@@ -122,44 +122,48 @@ const Testimonials = () => {
         </div>
         
         {/* Slider Container */}
-        <div className="relative w-full max-w-6xl mx-auto px-4">
+        <div className="relative w-full max-w-7xl mx-auto px-2 sm:px-4">
           {/* Carousel */}
           <div className="embla overflow-hidden" ref={emblaRef}>
-            <div className="embla__container flex -ml-4">
+            <div className="embla__container flex -ml-2 sm:-ml-3 md:-ml-4">
               {testimonials.map((testimonial, index) => (
-                <div key={index} className="embla__slide flex-[0_0_100%] sm:flex-[0_0_85%] md:flex-[0_0_75%] lg:flex-[0_0_60%] min-w-0 pl-4">
-                  <Card className="h-full flex flex-col bg-card/90 backdrop-blur-md border border-border/50 hover:border-primary/30 transition-all duration-300 group shadow-lg hover:shadow-xl">
-                    <CardHeader className="pb-4 text-center p-6">
-                      <div className="flex flex-col items-center space-y-4">
-                        <div className="w-14 h-14 rounded-full bg-gradient-to-br from-primary to-primary/70 flex items-center justify-center shadow-md">
-                          <span className="text-lg font-bold text-primary-foreground">{testimonial.name.charAt(0).toUpperCase()}</span>
+                <div key={index} className="embla__slide flex-[0_0_100%] xs:flex-[0_0_90%] sm:flex-[0_0_80%] md:flex-[0_0_70%] lg:flex-[0_0_55%] xl:flex-[0_0_45%] min-w-0 pl-2 sm:pl-3 md:pl-4">
+                  <Card className="h-full flex flex-col bg-card/95 backdrop-blur-md border border-border/50 hover:border-primary/40 transition-all duration-300 group shadow-md hover:shadow-lg mx-auto">
+                    <CardHeader className="pb-3 sm:pb-4 text-center p-3 sm:p-4 md:p-6">
+                      <div className="flex flex-col items-center space-y-2 sm:space-y-3">
+                        <div className="w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 rounded-full bg-gradient-to-br from-primary to-primary/70 flex items-center justify-center shadow-md">
+                          <span className="text-sm sm:text-base md:text-lg font-bold text-primary-foreground">
+                            {testimonial.name.charAt(0).toUpperCase()}
+                          </span>
                         </div>
-                        <div className="space-y-2">
-                          <CardTitle className="text-lg font-semibold text-foreground group-hover:text-primary transition-colors duration-300">
+                        <div className="space-y-1 sm:space-y-2">
+                          <CardTitle className="text-sm sm:text-base md:text-lg font-semibold text-foreground group-hover:text-primary transition-colors duration-300 leading-tight">
                             {testimonial.name}
                           </CardTitle>
-                          <div className="flex flex-col items-center gap-2">
-                            <span className="text-sm text-muted-foreground">
+                          <div className="flex flex-col items-center gap-1 sm:gap-2">
+                            <span className="text-xs sm:text-sm text-muted-foreground">
                               {testimonial.country}
                             </span>
                             {testimonial.role === "Repeat Client" && (
-                              <Badge variant="secondary" className="text-xs bg-primary/10 text-primary border-primary/20">
+                              <Badge variant="secondary" className="text-xs bg-primary/10 text-primary border-primary/20 px-2 py-1">
                                 Repeat Client
                               </Badge>
                             )}
                           </div>
                         </div>
-                        <div className="flex items-center gap-1 bg-muted/30 px-3 py-1.5 rounded-full">
+                        <div className="flex items-center gap-1 bg-muted/30 px-2 sm:px-3 py-1 sm:py-1.5 rounded-full">
                           {renderStars(testimonial.rating)}
-                          <span className="text-sm font-medium ml-2 text-foreground">{testimonial.rating}</span>
+                          <span className="text-xs sm:text-sm font-medium ml-1 sm:ml-2 text-foreground">{testimonial.rating}</span>
                         </div>
                       </div>
                     </CardHeader>
-                    <CardContent className="flex-1 p-6 pt-0">
-                      <blockquote className="text-muted-foreground leading-relaxed text-sm lg:text-base relative">
-                        <span className="text-4xl text-primary/20 absolute -top-2 -left-2">"</span>
-                        <span className="relative z-10 block px-6">{testimonial.review}</span>
-                        <span className="text-4xl text-primary/20 absolute -bottom-6 -right-2">"</span>
+                    <CardContent className="flex-1 p-3 sm:p-4 md:p-6 pt-0">
+                      <blockquote className="text-muted-foreground leading-relaxed text-xs sm:text-sm lg:text-base relative min-h-[120px] sm:min-h-[140px] md:min-h-[160px] flex items-center">
+                        <span className="text-2xl sm:text-3xl md:text-4xl text-primary/20 absolute -top-1 sm:-top-2 -left-1 sm:-left-2">"</span>
+                        <span className="relative z-10 block px-3 sm:px-4 md:px-6 text-center">
+                          {testimonial.review}
+                        </span>
+                        <span className="text-2xl sm:text-3xl md:text-4xl text-primary/20 absolute -bottom-4 sm:-bottom-6 -right-1 sm:-right-2">"</span>
                       </blockquote>
                     </CardContent>
                   </Card>
