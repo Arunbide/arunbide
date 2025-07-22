@@ -122,58 +122,64 @@ const Testimonials = () => {
         </div>
         
         {/* Slider Container */}
-        <div className="relative w-full max-w-4xl mx-auto px-4">
+        <div className="relative w-full max-w-5xl mx-auto">
           {/* Carousel */}
-          <div className="embla overflow-hidden rounded-2xl" ref={emblaRef}>
+          <div className="embla overflow-hidden rounded-3xl" ref={emblaRef}>
             <div className="embla__container flex">
               {testimonials.map((testimonial, index) => (
                 <div key={index} className="embla__slide flex-[0_0_100%] min-w-0">
-                  <Card className="h-full bg-gradient-to-br from-card/95 to-card/80 backdrop-blur-xl border-0 shadow-2xl mx-4">
-                    <CardContent className="p-8 md:p-12">
-                      {/* Quote Icon */}
-                      <div className="flex justify-center mb-6">
-                        <div className="w-16 h-16 bg-gradient-to-br from-primary to-primary/60 rounded-full flex items-center justify-center shadow-lg">
-                          <span className="text-2xl text-primary-foreground">"</span>
-                        </div>
-                      </div>
+                  <Card className="h-full bg-gradient-to-br from-background via-background/95 to-background/90 backdrop-blur-2xl border border-border/20 shadow-2xl overflow-hidden">
+                    <CardContent className="p-0">
+                      {/* Background Pattern */}
+                      <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-accent/5" />
+                      <div className="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-primary via-accent to-primary" />
                       
-                      {/* Review Text */}
-                      <blockquote className="text-center mb-8">
-                        <p className="text-lg md:text-xl text-foreground leading-relaxed font-medium italic">
-                          "{testimonial.review}"
-                        </p>
-                      </blockquote>
-                      
-                      {/* Rating */}
-                      <div className="flex justify-center mb-6">
-                        <div className="flex items-center gap-1 bg-gradient-to-r from-amber-50 to-orange-50 dark:from-amber-900/20 dark:to-orange-900/20 px-4 py-2 rounded-full border border-amber-200/50 dark:border-amber-800/50">
-                          {renderStars(testimonial.rating)}
-                          <span className="text-sm font-bold ml-2 text-amber-700 dark:text-amber-300">{testimonial.rating}</span>
-                        </div>
-                      </div>
-                      
-                      {/* Author Info */}
-                      <div className="text-center border-t border-border/50 pt-6">
-                        <div className="flex items-center justify-center gap-4">
-                          <div className="w-12 h-12 bg-gradient-to-br from-muted to-muted/60 rounded-full flex items-center justify-center">
-                            <span className="text-lg font-bold text-muted-foreground">
-                              {testimonial.name.charAt(0).toUpperCase()}
-                            </span>
+                      <div className="relative z-10 p-8 md:p-16">
+                        {/* Quote Section */}
+                        <div className="text-center mb-12">
+                          <div className="inline-flex items-center justify-center w-20 h-20 mb-8 bg-gradient-to-br from-primary to-accent rounded-2xl shadow-lg">
+                            <span className="text-3xl text-primary-foreground font-bold">"</span>
                           </div>
-                          <div className="text-left">
-                            <h4 className="font-semibold text-foreground text-lg">
-                              {testimonial.name}
-                            </h4>
-                            <div className="flex items-center gap-2 mt-1">
-                              <span className="text-sm text-muted-foreground">
-                                {testimonial.country}
+                          
+                          <blockquote className="text-2xl md:text-3xl lg:text-4xl font-light text-foreground leading-relaxed mb-8 max-w-4xl mx-auto">
+                            "{testimonial.review}"
+                          </blockquote>
+                        </div>
+                        
+                        {/* Rating & Author Section */}
+                        <div className="flex flex-col md:flex-row items-center justify-between gap-8 pt-8 border-t border-border/30">
+                          {/* Author Info */}
+                          <div className="flex items-center gap-6">
+                            <div className="w-16 h-16 bg-gradient-to-br from-muted to-muted/60 rounded-2xl flex items-center justify-center shadow-md">
+                              <span className="text-2xl font-bold text-muted-foreground">
+                                {testimonial.name.charAt(0).toUpperCase()}
                               </span>
-                              {testimonial.role === "Repeat Client" && (
-                                <Badge variant="secondary" className="text-xs bg-primary/10 text-primary border-primary/20">
-                                  Repeat Client
-                                </Badge>
-                              )}
                             </div>
+                            <div>
+                              <h4 className="text-xl font-semibold text-foreground mb-1">
+                                {testimonial.name}
+                              </h4>
+                              <div className="flex items-center gap-3">
+                                <span className="text-muted-foreground">
+                                  {testimonial.country}
+                                </span>
+                                {testimonial.role === "Repeat Client" && (
+                                  <Badge variant="secondary" className="bg-primary/10 text-primary border-primary/20 font-medium">
+                                    Repeat Client
+                                  </Badge>
+                                )}
+                              </div>
+                            </div>
+                          </div>
+                          
+                          {/* Rating */}
+                          <div className="flex items-center gap-2 bg-gradient-to-r from-amber-50 to-orange-50 dark:from-amber-900/20 dark:to-orange-900/20 px-6 py-3 rounded-2xl border border-amber-200/50 dark:border-amber-800/50 shadow-sm">
+                            <div className="flex items-center gap-1">
+                              {renderStars(testimonial.rating)}
+                            </div>
+                            <span className="text-lg font-bold ml-2 text-amber-700 dark:text-amber-300">
+                              {testimonial.rating}
+                            </span>
                           </div>
                         </div>
                       </div>
@@ -184,40 +190,15 @@ const Testimonials = () => {
             </div>
           </div>
 
-          {/* Navigation Buttons */}
-          <div className="absolute top-1/2 -translate-y-1/2 -left-2 md:left-4 lg:-left-16">
-            <Button
-              variant="outline"
-              size="icon"
-              onClick={scrollPrev}
-              disabled={!canScrollPrev}
-              className="rounded-full border-2 hover:scale-110 transition-all duration-300 disabled:opacity-50 w-10 h-10 md:w-12 md:h-12 bg-background/80 backdrop-blur-sm"
-            >
-              <ChevronLeft className="h-4 w-4 md:h-5 md:w-5" />
-            </Button>
-          </div>
-          
-          <div className="absolute top-1/2 -translate-y-1/2 -right-2 md:right-4 lg:-right-16">
-            <Button
-              variant="outline"
-              size="icon"
-              onClick={scrollNext}
-              disabled={!canScrollNext}
-              className="rounded-full border-2 hover:scale-110 transition-all duration-300 disabled:opacity-50 w-10 h-10 md:w-12 md:h-12 bg-background/80 backdrop-blur-sm"
-            >
-              <ChevronRight className="h-4 w-4 md:h-5 md:w-5" />
-            </Button>
-          </div>
-
           {/* Dots Indicator */}
-          <div className="flex justify-center gap-2 mt-6 md:mt-8">
+          <div className="flex justify-center gap-3 mt-8">
             {testimonials.map((_, index) => (
               <button
                 key={index}
                 onClick={() => emblaApi?.scrollTo(index)}
-                className={`w-2 h-2 md:w-3 md:h-3 rounded-full transition-all duration-300 ${
+                className={`w-3 h-3 rounded-full transition-all duration-300 ${
                   index === selectedIndex 
-                    ? 'bg-primary scale-125' 
+                    ? 'bg-primary scale-125 shadow-lg' 
                     : 'bg-muted-foreground/30 hover:bg-muted-foreground/50'
                 }`}
               />
