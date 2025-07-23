@@ -36,7 +36,7 @@ const Hero = () => {
           </div>
           
           <p className="text-xl md:text-2xl text-muted-foreground mb-12 max-w-4xl mx-auto leading-relaxed font-light">
-            Crafting innovative mobile applications with <span className="text-primary font-semibold">1+ years</span> of experience. 
+            Crafting innovative mobile applications with <span className="text-primary font-semibold">2 years</span> of experience. 
             Passionate about clean code, modern architecture, and creating user-friendly solutions 
             that make a difference.
           </p>
