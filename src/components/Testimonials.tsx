@@ -5,46 +5,46 @@ import { Star, Quote } from "lucide-react";
 const Testimonials = () => {
   const testimonials = [
     {
-      name: "Sarah Chen",
-      role: "Product Manager",
-      company: "TechFlow",
+      name: "sireeshaba",
+      role: "Repeat Client",
+      company: "United States",
       rating: 5,
-      review: "Exceptional work quality and attention to detail. Delivered beyond expectations with clean, maintainable code."
+      review: "Arun's contribution to our project was nothing short of exceptional. His coding skills were top-notch, delivering clean and well-documented code that significantly contributed to the success of the project."
     },
     {
-      name: "Michael Rodriguez",
-      role: "Startup Founder", 
-      company: "InnovateHub",
+      name: "atreyarao",
+      role: "Client", 
+      company: "India",
       rating: 5,
-      review: "Professional, reliable, and incredibly skilled. Made our complex project look effortless."
+      review: "Arun has delivered exceptional work in app testing. His attention to detail, expertise, and professionalism truly stand out. I highly recommend him for any app testing projects."
     },
     {
-      name: "Emily Watson",
-      role: "CTO",
-      company: "DevCorp",
+      name: "activealex",
+      role: "Client",
+      company: "United Kingdom",
       rating: 5,
-      review: "Outstanding developer with great communication. Would definitely work with again."
+      review: "Pleasure to work with. Very professional, helpful and patient!"
     },
     {
-      name: "David Kim",
-      role: "Designer",
-      company: "CreativeStudio",
-      rating: 4.8,
-      review: "Brought our designs to life perfectly. Great collaboration and fast delivery."
-    },
-    {
-      name: "Lisa Thompson",
-      role: "Marketing Director",
-      company: "GrowthLab",
+      name: "kknlive",
+      role: "Client",
+      company: "India",
       rating: 5,
-      review: "Transformed our vision into reality. Excellent problem-solving skills and creativity."
+      review: "Arun did an exceptional job updating my app. Their attention to detail is remarkable, ensuring everything was handled with precision. They are incredibly polite and professional."
     },
     {
-      name: "James Wilson",
-      role: "Entrepreneur",
-      company: "StartupX",
+      name: "sireeshaba",
+      role: "Repeat Client",
+      company: "United States",
+      rating: 4.3,
+      review: "Met expectation and responsive to queries"
+    },
+    {
+      name: "techclient01",
+      role: "Startup Founder",
+      company: "Canada",
       rating: 4.9,
-      review: "Top-tier development skills. Professional, efficient, and delivers quality results."
+      review: "Great developer with excellent problem-solving skills. Delivered our mobile app on time with clean code and great performance."
     }
   ];
 
