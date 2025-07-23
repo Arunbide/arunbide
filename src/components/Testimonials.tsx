@@ -133,7 +133,7 @@ const Testimonials = () => {
         {/* Stats */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-3xl mx-auto">
           <div className="text-center">
-            <div className="text-3xl font-bold framer-text-gradient mb-2">50+</div>
+            <div className="text-3xl font-bold framer-text-gradient mb-2">5+</div>
             <div className="text-muted-foreground text-sm">Happy Clients</div>
           </div>
           <div className="text-center">
@@ -141,11 +141,11 @@ const Testimonials = () => {
             <div className="text-muted-foreground text-sm">Average Rating</div>
           </div>
           <div className="text-center">
-            <div className="text-3xl font-bold framer-text-gradient mb-2">100+</div>
+            <div className="text-3xl font-bold framer-text-gradient mb-2">10+</div>
             <div className="text-muted-foreground text-sm">Projects Done</div>
           </div>
           <div className="text-center">
-            <div className="text-3xl font-bold framer-text-gradient mb-2">99%</div>
+            <div className="text-3xl font-bold framer-text-gradient mb-2">100%</div>
             <div className="text-muted-foreground text-sm">Success Rate</div>
           </div>
         </div>
