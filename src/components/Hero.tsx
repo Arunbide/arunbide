@@ -9,14 +9,14 @@ const Hero = () => {
       <div className="container mx-auto text-center relative z-10">
         <div className="animate-fade-in">
           <div className="mb-8 framer-floating">
-            <div className="text-sm text-primary font-semibold mb-4 framer-badge inline-block">
-              ✨ Available for New Projects
-            </div>
             <h1 className="text-6xl md:text-8xl font-bold mb-6 framer-text-gradient">
               Arun Bide
             </h1>
-            <div className="text-2xl md:text-3xl text-muted-foreground mb-6 font-light">
+            <div className="text-2xl md:text-3xl text-muted-foreground mb-2 font-light">
               Native Android Developer
+            </div>
+            <div className="text-lg text-muted-foreground/80 mb-6">
+              2 Years of Experience in App Development
             </div>
           </div>
           

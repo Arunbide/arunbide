@@ -33,7 +33,7 @@ const Experience = () => {
                   <div>
                     <CardTitle className="text-2xl mb-2">Freelance Android Developer</CardTitle>
                     <CardDescription className="text-lg text-primary font-semibold">
-                      Bank UP (USA-based Startup)
+                      Bank UP
                     </CardDescription>
                   </div>
                   <Badge variant="secondary" className="framer-badge">
